@@ -38,15 +38,15 @@
     0px 2px 2px rgb(0 0 0 / 0.12);
 
   --modal-box-shadow: var(--team-box-shadow);
-  --modal-close-btn-border: 1px solid rgb(0 0 0 / 0.1);
+  --modal-close-btn-border-color: rgb(0 0 0 / 0.1);
+  --modal-close-btn-box-shadow: 0 0px 2px 0 rgb(60 64 67 / 0.3), 0 0px 6px 3px rgb(60 64 67 / 0.15);
 
   /* Grid setting */
-  --project-items: 2;
+  /* --project-items: 3; */
   --project-indent: 30px;
 
-  /* Transition setting */
-  --transition-duration: 250ms;
-  --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  /* Animation setting */
+  --animation: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Global Styles */
@@ -83,9 +83,8 @@ img {
 
 .button,
 .link {
-  transition-property: color, background-color, box-shadow, border;
-  transition-duration: var(--transition-duration);
-  transition-timing-function: var(--transition-timing-function);
+  transition: color var(--animation), background-color var(--animation), box-shadow var(--animation),
+    border var(--animation);
 }
 
 .link:hover,
@@ -549,9 +548,7 @@ img {
 
 .project-item {
   max-width: 370px;
-  transition-property: box-shadow;
-  transition-duration: var(--transition-duration);
-  transition-timing-function: var(--transition-timing-function);
+  transition: box-shadow var(--animation);
 }
 
 .project-item:hover {
@@ -579,7 +576,7 @@ img {
   background: var(--project-background-overlay);
 
   transform: translateY(100%);
-  transition: transform var(--transition-duration) var(--transition-timing-function);
+  transition: transform var(--animation);
 }
 
 .project-item:hover .project-img-overlay {
@@ -626,7 +623,7 @@ img {
   opacity: 1;
   visibility: visible;
 
-  transition: visibility var(--transition-duration), opacity var(--transition-duration);
+  transition: visibility var(--animation), opacity var(--animation);
 }
 
 .backdrop.is-hidden {
@@ -647,7 +644,7 @@ img {
   border-radius: 4px;
 
   transform: translate(-50%, -50%) scale(1);
-  transition: transform var(--transition-duration);
+  transition: transform var(--animation);
 }
 
 .backdrop.is-hidden .modal {
@@ -664,9 +661,19 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
 
   background-color: transparent;
   border-radius: 50%;
-  border: var(--modal-close-btn-border);
+  border: 1px solid var(--modal-close-btn-border-color);
   cursor: pointer;
+
+  transition: border-color var(--animation), box-shadow var(--animation);
+}
+
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+  outline-color: var(--main-accent-color);
+  border-color: var(--main-accent-color);
+  box-shadow: var(--modal-close-btn-box-shadow);
 }
