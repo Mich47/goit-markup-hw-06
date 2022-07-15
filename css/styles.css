@@ -824,6 +824,36 @@ img {
   margin-bottom: 30px;
 }
 
+.form-checkbox:focus + .check-box {
+  border-color: var(--main-accent-color);
+}
+
+.form-checkbox:checked + .check-box {
+  border-color: var(--main-accent-color);
+  background-color: var(--main-accent-color);
+}
+
+.check-box {
+  position: relative;
+  width: 16px;
+  height: 15px;
+  border: 2px solid var(--main-font-color);
+  border-radius: 2px;
+  background-color: #fff;
+}
+
+.check-icon {
+  position: absolute;
+  top: 0px;
+  left: 1px;
+  opacity: 0;
+}
+
+.form-checkbox:checked + * .check-icon {
+  opacity: 1;
+  z-index: 5;
+}
+
 .form-checkbox-label {
   display: inline-block;
   margin-left: 8px;
