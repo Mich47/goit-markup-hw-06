@@ -193,6 +193,22 @@ img {
   color: var(--main-accent-color);
 }
 
+.header .container {
+  display: flex;
+  align-items: center;
+}
+
+.navigation {
+  margin-left: 90px;
+  margin-right: auto;
+}
+
+.navigation-list,
+.contact-list {
+  flex-shrink: 0;
+  gap: 50px;
+}
+
 .navigation-link,
 .contact-link {
   position: relative;
@@ -216,21 +232,6 @@ img {
 .contact-link:hover,
 .contact-link:focus {
   color: var(--main-accent-color);
-}
-
-.navigation-list,
-.contact-list {
-  gap: 50px;
-}
-
-.navigation {
-  margin-left: 90px;
-  margin-right: auto;
-}
-
-.header .container {
-  display: flex;
-  align-items: center;
 }
 
 /* Current Page */
@@ -824,8 +825,10 @@ img {
   margin-bottom: 30px;
 }
 
-.form-checkbox:focus + .check-box {
+.form-checkbox-field:hover .check-box,
+.form-checkbox-field:focus .check-box {
   border-color: var(--main-accent-color);
+  cursor: pointer;
 }
 
 .form-checkbox:checked + .check-box {
